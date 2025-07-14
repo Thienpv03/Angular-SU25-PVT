@@ -40,3 +40,19 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+
+
+# .gitignore
+node_modules/
+dist/
+.env
+package-lock.json
+pnpm-lock.yaml
+.angular/
+tmp/
+.DS_Store
+.idea/
+.vscode/
+coverage/
