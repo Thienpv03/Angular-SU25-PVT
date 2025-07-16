@@ -1,0 +1,26 @@
+<h2>Danh sách sản phẩm</h2>
+<a routerLink="add" class="btn btn-primary mb-3">Thêm sản phẩm</a>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Tên</th>
+      <th>Giá</th>
+      <th>Ảnh</th>
+      <th>Hành động</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of products">
+      <td>{{ p.id }}</td>
+      <td>{{ p.name }}</td>
+      <td>{{ p.price | currency:'VND' }}</td>
+      <td><img [src]="p.image" width="60" /></td>
+      <td>
+        <a [routerLink]="['edit', p.id]" class="btn btn-sm btn-info">Sửa</a>
+        <button (click)="delete(p.id!)" class="btn btn-sm btn-danger">Xoá</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
