@@ -1,13 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ProductList } from './product-list/product-list';
-import { CategoryList } from './category-list/category-list';
-import { ProductDetail } from './product-detail/product-detail';
-import { BrandList } from './brand-list/brand-list';
+import { Sidebar } from '../sidebar/sidebar';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ProductList, CategoryList, ProductDetail, BrandList],
+  imports: [RouterOutlet, Sidebar],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

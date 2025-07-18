@@ -11,11 +11,13 @@ import { FormsModule } from '@angular/forms';
 })
 export class BrandList {
   brands = [
-    { id: 1, name: 'Manchester United' },
+    { id: 1, name: 'Chealsea' },
     { id: 2, name: 'Real Madrid' },
     { id: 3, name: 'Bayern Munich' },
     { id: 4, name: 'PSG' },
     { id: 5, name: 'AC Milan' },
+    { id: 6, name: 'Manchester United' },
+
   ];
 
   filterText = '';
