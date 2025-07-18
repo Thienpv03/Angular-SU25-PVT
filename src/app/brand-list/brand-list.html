@@ -1,0 +1,18 @@
+<h2>Brand List</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- ngFor (@for) -->
+    <tr *ngFor="let brand of filterBrands()">
+      <!-- data binding Interpolation ({{ }}): Hiển thị dữ liệu từ component. {{ data }} -->
+      <td>{{ brand.id }}</td>
+      <td>{{ brand.name }}</td>
+    </tr>
+  </tbody>
+</table>
