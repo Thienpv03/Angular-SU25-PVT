@@ -1,13 +1,19 @@
-<br>
+<h2 class="a" >{{ product.name }}</h2>
+
 <div class="product-card">
-  <img [src]="product.image" [alt]="product.name" class="product-image" width="200" height="200" />
-  <h2>{{ product.name }}</h2>
-  <p>Giá: {{ product.price | currency : "USD" }}</p>
-  <p *ngIf="product.inStock; else outOfStock">
-    Trạng thái: <span class="in-stock">Còn hàng</span>
-  </p>
-  <ng-template #outOfStock>
-    <p>Trạng thái: <span class="out-of-stock">Hết hàng</span></p>
-  </ng-template>
-  
+  <div class="left">
+    
+    <img [src]="product.image" [alt]="product.name" class="product-image" width="200" height="200" />
+    <p>Giá: {{ product.price | currency : "VND" }}</p>
+  </div>
+
+  <div class="right">
+    <h4> {{ product.description }}</h4>
+    <p *ngIf="product.inStock; else outOfStock">
+      Trạng thái: <span class="in-stock">Còn hàng</span>
+    </p>
+    <ng-template #outOfStock>
+      <p>Trạng thái: <span class="out-of-stock">Hết hàng</span></p>
+    </ng-template>
+  </div>
 </div>

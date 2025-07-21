@@ -14,8 +14,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let product of filterProducts()">
-        <td>{{ product.id }}</td>
-        <!-- LAPTOP -->
+        <td>
+          <a [routerLink]="['/product', product.id]">
+            {{ product.id }}
+          </a>
+        </td>
+
+
+        
         <td>{{ product.name | uppercase }}</td>
         <td>{{ product.price | currency : "VND" }}</td>
         <td [ngStyle]="{ color: product.inStock ? 'green' : 'red' }">
