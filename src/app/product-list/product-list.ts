@@ -13,7 +13,7 @@ export class ProductList {
   products = [
     {
       id: 1,
-      name: 'Áo Chealsea 2025',
+      name: 'Áo Chelsea 2025',
       price: 550000,
       inStock: true,
       description: 'Áo sân nhà chính thức của Chealsea mùa giải 2025, thiết kế xanh dương truyền thống với vân áo mới mẻ.',

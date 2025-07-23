@@ -4,6 +4,7 @@ import { ProductDetail } from './product-detail/product-detail';
 import { CategoryList } from './category-list/category-list';
 import { BrandList } from './brand-list/brand-list';
 import { UserList } from './user-list/user-list';
+import { ProductCreate } from './product-create/product-create';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'users',
     component: UserList,
+  },
+   {
+    path: 'add-product',
+    component: ProductCreate,
   },
 ];
