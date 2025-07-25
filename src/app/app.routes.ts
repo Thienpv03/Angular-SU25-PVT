@@ -5,6 +5,9 @@ import { CategoryList } from './category-list/category-list';
 import { BrandList } from './brand-list/brand-list';
 import { UserList } from './user-list/user-list';
 import { ProductCreate } from './product-create/product-create';
+import { CategoryCreate } from './category-create/category-create';
+import { BrandCreate } from './brand-create/brand-create';
+import { UserCreate } from './user-create/user-create';
 
 export const routes: Routes = [
   {
@@ -30,5 +33,17 @@ export const routes: Routes = [
    {
     path: 'add-product',
     component: ProductCreate,
+  },
+  {
+    path: 'add-category',
+    component: CategoryCreate,
+  },
+  {
+    path: 'add-brand',
+    component: BrandCreate,
+  },
+  {
+    path: 'add-user',
+    component: UserCreate,
   },
 ];

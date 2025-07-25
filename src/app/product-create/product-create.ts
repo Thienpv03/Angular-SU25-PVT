@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 @Component({
   selector: 'app-product-create',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule], 
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './product-create.html',
   styleUrls: ['./product-create.css'],
 })
@@ -25,6 +25,8 @@ export class ProductCreate {
   handleSubmit() {
     if (this.productForm.valid) {
       console.log('Form Submitted:', this.productForm.value);
+      alert(' Product submitted successfully!');
+      this.productForm.reset();
     } else {
       this.productForm.markAllAsTouched();
     }

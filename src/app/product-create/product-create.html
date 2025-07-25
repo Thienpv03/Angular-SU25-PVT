@@ -1,100 +1,96 @@
-<form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
-  <div class="mb-3">
-    <label for="name" class="form-label">Name</label>
-    <input
-      type="text"
-      class="form-control"
-      id="name"
-      formControlName="name"
-      [ngClass]="{
-        'is-invalid': productForm.get('name')?.invalid && productForm.get('name')?.touched
-      }"
-    />
-    <div
-      *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched"
-      class="invalid-feedback"
-    >
-      <div *ngIf="productForm.get('name')?.errors?.['required']">
-        Name is required.
-      </div>
-      <div *ngIf="productForm.get('name')?.errors?.['minlength']">
-        Name must be at least 3 characters long.
-      </div>
+<div class="d-flex justify-content-center mt-5">
+  <div class="card shadow-sm" style="min-width: 400px; max-width: 600px; width: 100%;">
+    <div class="card-body">
+      <h4 class="card-title mb-4 text-center">Create Product</h4>
+      <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            formControlName="name"
+            [ngClass]="{
+              'is-invalid': productForm.get('name')?.invalid && productForm.get('name')?.touched
+            }"
+          />
+          <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" class="invalid-feedback">
+            <div *ngIf="productForm.get('name')?.errors?.['required']">Name is required.</div>
+            <div *ngIf="productForm.get('name')?.errors?.['minlength']">At least 3 characters.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            formControlName="price"
+            [ngClass]="{
+              'is-invalid': productForm.get('price')?.invalid && productForm.get('price')?.touched
+            }"
+          />
+          <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" class="invalid-feedback">
+            <div *ngIf="productForm.get('price')?.errors?.['required']">Price is required.</div>
+            <div *ngIf="productForm.get('price')?.errors?.['min']">Must be non-negative.</div>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image URL</label>
+          <input
+            type="url"
+            class="form-control"
+            id="image"
+            formControlName="image"
+            [ngClass]="{
+              'is-invalid': productForm.get('image')?.invalid && productForm.get('image')?.touched
+            }"
+          />
+          <div *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched" class="invalid-feedback">
+            Image URL is required.
+          </div>
+          <img
+            *ngIf="productForm.get('image')?.valid"
+            [src]="productForm.get('image')?.value"
+            alt="Preview"
+            class="img-thumbnail mt-2"
+            style="max-width: 100%; max-height: 200px;"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <input
+            type="text"
+            class="form-control"
+            id="description"
+            formControlName="description"
+            [ngClass]="{
+              'is-invalid': productForm.get('description')?.invalid && productForm.get('description')?.touched
+            }"
+          />
+          <div
+            *ngIf="productForm.get('description')?.invalid && productForm.get('description')?.touched"
+            class="invalid-feedback"
+          >
+            Description is required.
+          </div>
+        </div>
+
+        <div class="form-check mb-3">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="inStock"
+            formControlName="inStock"
+          />
+          <label class="form-check-label" for="inStock">In Stock</label>
+        </div>
+
+        <button type="submit" class="btn btn-success w-100">Create Product</button>
+      </form>
     </div>
   </div>
-
-  <div class="mb-3">
-    <label for="price" class="form-label">Price</label>
-    <input
-      type="number"
-      class="form-control"
-      id="price"
-      formControlName="price"
-      [ngClass]="{
-        'is-invalid': productForm.get('price')?.invalid && productForm.get('price')?.touched
-      }"
-    />
-    <div
-      *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched"
-      class="invalid-feedback"
-    >
-      <div *ngIf="productForm.get('price')?.errors?.['required']">
-        Price is required.
-      </div>
-      <div *ngIf="productForm.get('price')?.errors?.['min']">
-        Price must be non-negative.
-      </div>
-    </div>
-  </div>
-
-  <div class="mb-3">
-    <label for="image" class="form-label">Image</label>
-    <input
-      type="url"
-      class="form-control"
-      id="image"
-      formControlName="image"
-      [ngClass]="{
-        'is-invalid': productForm.get('image')?.invalid && productForm.get('image')?.touched
-      }"
-    />
-    <div
-      *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched"
-      class="invalid-feedback"
-    >
-      Image URL is required.
-    </div>
-  </div>
-
-  <div class="mb-3">
-  <label for="description" class="form-label">Description</label>
-  <input
-    type="text"
-    class="form-control"
-    id="description"
-    formControlName="description"
-    [ngClass]="{
-        'is-invalid': productForm.get('image')?.invalid && productForm.get('image')?.touched
-      }"
-  />
-  <div
-      *ngIf="productForm.get('image')?.invalid && productForm.get('image')?.touched"
-      class="invalid-feedback"
-    >
-      Description is required.
-    </div>
-    </div>
-
-
-  <div class="form-group form-check">
-    <input
-      type="checkbox"
-      class="form-check-input"
-      id="inStock"
-      formControlName="inStock"
-    />
-    <label class="form-check-label" for="inStock">In Stock</label>
-  </div>
-
-  <button type="submit" class="btn btn-primary mt-3">Submit</button>
-</form>
+</div>
