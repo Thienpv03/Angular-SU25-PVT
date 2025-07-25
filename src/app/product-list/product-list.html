@@ -1,5 +1,12 @@
 <h2>Product List</h2>
-<input [(ngModel)]="filterText" placeholder="Filter by name" />
+<div style="text-align: right;">
+  <button 
+    class="btn btn-primary mb-3" 
+    [routerLink]="['/add-product']">
+     Thêm sản phẩm
+  </button>
+</div>
+<input [(ngModel)]="filterText" placeholder="Tìm kiếm theo tên..." />
 <div *ngIf="filterProducts().length > 0; else noProducts">
   <table>
     <thead>
