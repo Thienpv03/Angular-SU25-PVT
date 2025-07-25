@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class BrandList {
   brands = [
-    { id: 1, name: 'Chealsea' },
+    { id: 1, name: 'Chelsea' },
     { id: 2, name: 'Real Madrid' },
     { id: 3, name: 'Bayern Munich' },
     { id: 4, name: 'PSG' },

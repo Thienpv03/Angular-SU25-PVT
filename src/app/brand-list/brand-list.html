@@ -1,5 +1,12 @@
 <h2>Brand List</h2>
 
+<input
+  type="text"
+  [(ngModel)]="filterText"
+  placeholder="Tìm kiếm thương hiệu..."
+  style="margin-bottom: 10px; padding: 6px; width: 250px;"
+/>
+
 <table>
   <thead>
     <tr>
@@ -8,9 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <!-- ngFor (@for) -->
     <tr *ngFor="let brand of filterBrands()">
-      <!-- data binding Interpolation ({{ }}): Hiển thị dữ liệu từ component. {{ data }} -->
       <td>{{ brand.id }}</td>
       <td>{{ brand.name }}</td>
     </tr>

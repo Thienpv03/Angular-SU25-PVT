@@ -1,5 +1,12 @@
 <h2>User List</h2>
 
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  placeholder="Tìm theo tên hoặc email..."
+  style="margin-bottom: 10px; padding: 6px; width: 250px;"
+/>
+
 <table>
   <thead>
     <tr>
@@ -9,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let user of users">
+    <tr *ngFor="let user of filteredUsers()">
       <td>{{ user.id }}</td>
       <td>{{ user.name }}</td>
       <td>{{ user.email }}</td>

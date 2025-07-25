@@ -1,19 +1,14 @@
-<h2 class="a" >{{ product.name }}</h2>
-
-<div class="product-card">
-  <div class="left">
-    
-    <img [src]="product.image" [alt]="product.name" class="product-image" width="200" height="200" />
-    <p>Giá: {{ product.price | currency : "VND" }}</p>
-  </div>
-
-  <div class="right">
-    <h4> {{ product.description }}</h4>
-    <p *ngIf="product.inStock; else outOfStock">
-      Trạng thái: <span class="in-stock">Còn hàng</span>
-    </p>
-    <ng-template #outOfStock>
-      <p>Trạng thái: <span class="out-of-stock">Hết hàng</span></p>
-    </ng-template>
-  </div>
+<div *ngIf="selectedProduct">
+  <h2>{{ selectedProduct.name }}</h2>
+  <img [src]="selectedProduct.image || 'https://via.placeholder.com/200'" width="200" height="200" />
+  <p><strong>Giá:</strong> {{ selectedProduct.price | number }} VND</p>
+  <p><strong>Tình trạng:</strong> 
+    <span [style.color]="selectedProduct.inStock ? 'green' : 'red'">
+      {{ selectedProduct.inStock ? 'Còn hàng' : 'Hết hàng' }}
+    </span>
+  </p>
+  <p>{{ selectedProduct.description }}</p>
+</div>
+<div *ngIf="!selectedProduct">
+  <p>Không tìm thấy sản phẩm.</p>
 </div>

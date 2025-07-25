@@ -1,6 +1,13 @@
 <h2>Category List</h2>
 
-<table>
+<input
+  type="text"
+  [(ngModel)]="searchTerm"
+  placeholder="Tìm kiếm theo tên..."
+  class="search-input"
+/>
+
+<table class="category-table">
   <thead>
     <tr>
       <th>ID</th>
@@ -8,7 +15,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let category of categories">
+    <tr *ngFor="let category of filteredCategories()">
       <td>{{ category.id }}</td>
       <td>{{ category.name }}</td>
     </tr>
