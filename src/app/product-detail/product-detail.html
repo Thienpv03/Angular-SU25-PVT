@@ -1,4 +1,4 @@
-<div *ngIf="selectedProduct">
+<div *ngIf="selectedProduct" class="product-detail">
   <h2>{{ selectedProduct.name }}</h2>
   <img [src]="selectedProduct.image || 'https://via.placeholder.com/200'" width="200" height="200" />
   <p><strong>Giá:</strong> {{ selectedProduct.price | number }} VND</p>
@@ -9,6 +9,7 @@
   </p>
   <p>{{ selectedProduct.description }}</p>
 </div>
-<div *ngIf="!selectedProduct">
+
+<div *ngIf="!selectedProduct" class="product-detail">
   <p>Không tìm thấy sản phẩm.</p>
 </div>

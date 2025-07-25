@@ -12,12 +12,17 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angula
 export class ProductCreate {
   productForm: FormGroup;
 
+  categories = ['Premier League ', 'La Liga', 'Bundesliga', 'Ligue 1', '	Serie A', 'Đội tuyển quốc gia'];
+  brands = ['Chelsea', 'Real Madrid', 'Bayern Munich', 'PSG', '	AC Milan', 'Manchester United'];
+
   constructor(private fb: FormBuilder) {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
       image: ['', Validators.required],
       price: [0, [Validators.required, Validators.min(0)]],
       description: ['', Validators.required],
+      category: ['', Validators.required],
+      brand: ['', Validators.required],
       inStock: [false],
     });
   }
