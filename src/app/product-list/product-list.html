@@ -17,6 +17,7 @@
         <th>Status</th>
         <th>Description</th>
         <th>Image</th>
+        <th>Options</th>
       </tr>
     </thead>
     <tbody>
@@ -37,6 +38,14 @@
         <td>{{ product.description }}</td>
        <td>
           <img [src]="product.image" alt="{{ product.name }}" width="80" height="80" />
+        </td>
+        <td>
+          <button class="btn btn-primary mb-3"
+          [routerLink]="['/update-product', product.id]"
+
+          >
+            Update
+          </button>
         </td>
       </tr>
     </tbody>

@@ -8,6 +8,7 @@ import { ProductCreate } from './product-create/product-create';
 import { CategoryCreate } from './category-create/category-create';
 import { BrandCreate } from './brand-create/brand-create';
 import { UserCreate } from './user-create/user-create';
+import { ProductUpdate } from '../product-update/product-update';
 
 export const routes: Routes = [
   {
@@ -45,5 +46,9 @@ export const routes: Routes = [
   {
     path: 'add-user',
     component: UserCreate,
+  },
+  {
+    path: 'update-product/:id',
+    component: ProductUpdate,
   },
 ];

@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-center mt-5">
   <div class="card shadow-sm" style="min-width: 400px; max-width: 600px; width: 100%;">
     <div class="card-body">
-      <h4 class="card-title mb-4 text-center">Create Product</h4>
+      <h4 class="card-title mb-4 text-center">Update Product</h4>
       <form [formGroup]="productForm" (ngSubmit)="handleSubmit()">
         <div class="mb-3">
           <label for="name" class="form-label">Name</label>
@@ -80,41 +80,42 @@
         </div>
 
         <div class="mb-3">
-  <label for="category" class="form-label">Category</label>
-  <select
-    class="form-select"
-    id="category"
-    formControlName="category"
-    [ngClass]="{
-      'is-invalid': productForm.get('category')?.invalid && productForm.get('category')?.touched
-    }"
-  >
-    <option value="">Select a category</option>
-    <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
-  </select>
-  <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="invalid-feedback">
-    Category is required.
-  </div>
-</div>
+          <label for="category" class="form-label">Category</label>
+          <input
+            type="text"
+            class="form-control"
+            id="category"
+            formControlName="category"
+            [ngClass]="{
+              'is-invalid': productForm.get('category')?.invalid && productForm.get('category')?.touched
+            }"
+          />
+          <div
+            *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched"
+            class="invalid-feedback"
+          >
+            Category is required.
+          </div>
+        </div>
 
-<div class="mb-3">
-  <label for="brand" class="form-label">Brand</label>
-  <select
-    class="form-select"
-    id="brand"
-    formControlName="brand"
-    [ngClass]="{
-      'is-invalid': productForm.get('brand')?.invalid && productForm.get('brand')?.touched
-    }"
-  >
-    <option value="">Select a brand</option>
-    <option *ngFor="let b of brands" [value]="b">{{ b }}</option>
-  </select>
-  <div *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched" class="invalid-feedback">
-    Brand is required.
-  </div>
-</div>
-
+        <div class="mb-3">
+          <label for="brand" class="form-label">Brand</label>
+          <input
+            type="text"
+            class="form-control"
+            id="brand"
+            formControlName="brand"
+            [ngClass]="{
+              'is-invalid': productForm.get('brand')?.invalid && productForm.get('brand')?.touched
+            }"
+          />
+          <div
+            *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched"
+            class="invalid-feedback"
+          >
+            Brand is required.
+          </div>
+        </div>
 
         <div class="form-check mb-3">
           <input
@@ -126,7 +127,7 @@
           <label class="form-check-label" for="inStock">In Stock</label>
         </div>
 
-        <button type="submit" class="btn btn-primary w-100">Create Product</button>
+        <button type="submit" class="btn btn-primary w-100">Update Product</button>
       </form>
     </div>
   </div>
