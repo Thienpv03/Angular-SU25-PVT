@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { Category, CategoryService } from '../services/category.service';
+
 
 @Component({
   selector: 'app-category-list',
@@ -10,19 +12,25 @@ import { RouterModule } from '@angular/router';
   templateUrl: './category-list.html',
   styleUrls: ['./category-list.css'],
 })
-export class CategoryList {
+export class CategoryList implements OnInit {
   searchTerm: string = '';
+  categories: Category[] = [];
+  errorMessage: string | null = null;
 
-  categories = [
-    { id: 1, name: 'Premier League' },
-    { id: 2, name: 'La Liga' },
-    { id: 3, name: 'Bundesliga' },
-    { id: 4, name: 'Ligue 1' },
-    { id: 5, name: 'Serie A' },
-    { id: 6, name: 'Đội tuyển quốc gia' },
-  ];
+  constructor(private categoryService: CategoryService) {}
 
-  filteredCategories() {
+  ngOnInit(): void {
+    this.loadCategories();
+  }
+
+  loadCategories(): void {
+    this.categoryService['getCategories']().subscribe({
+      next: (data: Category[]) => (this.categories = data),
+      error: (err: { message: string | null; }) => (this.errorMessage = err.message),
+    });
+  }
+
+  filteredCategories(): Category[] {
     const keyword = this.searchTerm.trim().toLowerCase();
     return this.categories.filter(category =>
       category.name.toLowerCase().includes(keyword)

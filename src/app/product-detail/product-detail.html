@@ -7,7 +7,7 @@
       {{ selectedProduct.inStock ? 'Còn hàng' : 'Hết hàng' }}
     </span>
   </p>
-  <p>{{ selectedProduct.description }}</p>
+  <p> <strong>Mô tả: </strong>{{ selectedProduct.description }}</p>
 </div>
 
 <div *ngIf="!selectedProduct" class="product-detail">

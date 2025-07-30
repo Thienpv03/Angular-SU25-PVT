@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { BrandService, Brand } from '../services/brand.service';
 
 @Component({
   selector: 'app-brand-list',
@@ -10,22 +11,28 @@ import { RouterModule } from '@angular/router';
   templateUrl: './brand-list.html',
   styleUrls: ['./brand-list.css'],
 })
-export class BrandList {
-  brands = [
-    { id: 1, name: 'Chelsea' },
-    { id: 2, name: 'Real Madrid' },
-    { id: 3, name: 'Bayern Munich' },
-    { id: 4, name: 'PSG' },
-    { id: 5, name: 'AC Milan' },
-    { id: 6, name: 'Manchester United' },
-
-  ];
-
+export class BrandList implements OnInit {
+  brands: Brand[] = [];
   filterText = '';
+  errorMessage: string | null = null;
 
-  filterBrands() {
-    return this.brands.filter(brand =>
-      brand.name.toLowerCase().includes(this.filterText.toLowerCase())
+  constructor(private brandService: BrandService) {}
+
+  ngOnInit(): void {
+    this.loadBrands();
+  }
+
+  loadBrands(): void {
+    this.brandService.getBrands().subscribe({
+      next: (data) => (this.brands = data),
+      error: (err) => (this.errorMessage = err.message),
+    });
+  }
+
+  filterBrands(): Brand[] {
+    const keyword = this.filterText.toLowerCase().trim();
+    return this.brands.filter((brand) =>
+      brand.name.toLowerCase().includes(keyword)
     );
   }
 }

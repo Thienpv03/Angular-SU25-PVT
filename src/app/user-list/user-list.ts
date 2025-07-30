@@ -1,6 +1,7 @@
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { UserService, User } from '../services/user.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -10,21 +11,31 @@ import { RouterModule } from '@angular/router';
   templateUrl: './user-list.html',
   styleUrls: ['./user-list.css'],
 })
-export class UserList {
-  searchTerm: string = '';
+export class UserList implements OnInit {
+  users: User[] = [];
+  searchTerm = '';
+  errorMessage: string | null = null;
 
-  users = [
-    { id: 1, name: 'Nguyễn Văn A', email: 'a@gmail.com' },
-    { id: 2, name: 'Trần Thị B', email: 'b@gmail.com' },
-    { id: 3, name: 'Phạm Văn C', email: 'c@gmail.com' },
-    { id: 4, name: 'Lê Thị D', email: 'd@gmail.com' },
-  ];
+  constructor(private userService: UserService) {}
 
-  filteredUsers() {
+  ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  loadUsers(): void {
+    this.userService.getUsers().subscribe({
+      next: (data) => (this.users = data),
+      error: (err) => (this.errorMessage = err.message),
+    });
+  }
+
+  filteredUsers(): User[] {
     const keyword = this.searchTerm.trim().toLowerCase();
-    return this.users.filter(user =>
-      user.name.toLowerCase().includes(keyword) ||
-      user.email.toLowerCase().includes(keyword)
+    return this.users.filter(
+      (user) =>
+        user.name.toLowerCase().includes(keyword) ||
+        user.email.toLowerCase().includes(keyword) ||
+        user.role.toLowerCase().includes(keyword)
     );
   }
 }

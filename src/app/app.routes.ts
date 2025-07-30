@@ -8,7 +8,7 @@ import { ProductCreate } from './product-create/product-create';
 import { CategoryCreate } from './category-create/category-create';
 import { BrandCreate } from './brand-create/brand-create';
 import { UserCreate } from './user-create/user-create';
-import { ProductUpdate } from '../product-update/product-update';
+import { ProductUpdate } from './product-update/product-update';
 
 export const routes: Routes = [
   {
