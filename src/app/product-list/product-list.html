@@ -16,6 +16,8 @@
         <th>Price</th>
         <th>Status</th>
         <th>Description</th>
+        <th>Category</th>
+        <th>Brand</th>
         <th>Image</th>
         <th>Options</th>
       </tr>
@@ -36,16 +38,28 @@
           {{ product.inStock ? "In Stock" : "Out of Stock" }}
         </td>
         <td>{{ product.description }}</td>
+        <td>{{ getCategoryName(product.category) }}</td>
+        <td>{{ getBrandName(product.brand) }}</td>
+
        <td>
           <img [src]="product.image" alt="{{ product.name }}" width="80" height="80" />
         </td>
         <td>
+          <div class="d-flex gap-2 mb-3">
           <button class="btn btn-primary mb-3"
           [routerLink]="['/update-product', product.id]"
 
           >
             Update
           </button>
+          <button *ngIf="product.id !== undefined"
+            class="btn btn-danger mb-3"
+            (click)="handleDelete(product.id)">
+            Delete
+          </button>
+
+          </div>
+          
         </td>
       </tr>
     </tbody>

@@ -90,7 +90,8 @@
     }"
   >
     <option value="">Select a category</option>
-    <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+    <option *ngFor="let c of categories" [ngValue]="c">{{ c.name }}</option>
+
   </select>
   <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="invalid-feedback">
     Category is required.
@@ -109,7 +110,7 @@
     }"
   >
     <option value="">Select a brand</option>
-    <option *ngFor="let b of brands" [value]="b.id">{{ b.name }}</option>
+    <option *ngFor="let b of brands" [ngValue]="b">{{ b.name }}</option>
   </select>
   <div *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched" class="invalid-feedback">
     Brand is required.

@@ -79,43 +79,43 @@
           </div>
         </div>
 
-        <div class="mb-3">
-          <label for="category" class="form-label">Category</label>
-          <input
-            type="text"
-            class="form-control"
-            id="category"
-            formControlName="category"
-            [ngClass]="{
-              'is-invalid': productForm.get('category')?.invalid && productForm.get('category')?.touched
-            }"
-          />
-          <div
-            *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched"
-            class="invalid-feedback"
-          >
-            Category is required.
-          </div>
-        </div>
+  <div class="mb-3">
+  <label for="category" class="form-label">Category</label>
+  <select
+    class="form-select"
+    id="category"
+    formControlName="category"
+    [ngClass]="{
+      'is-invalid': productForm.get('category')?.invalid && productForm.get('category')?.touched
+    }"
+  >
+    <option value="">Select a category</option>
+    <option *ngFor="let c of categories" [value]="c.id">{{ c.name }}</option>
+  </select>
+  <div *ngIf="productForm.get('category')?.invalid && productForm.get('category')?.touched" class="invalid-feedback">
+    Category is required.
+  </div>
+</div>
 
-        <div class="mb-3">
-          <label for="brand" class="form-label">Brand</label>
-          <input
-            type="text"
-            class="form-control"
-            id="brand"
-            formControlName="brand"
-            [ngClass]="{
-              'is-invalid': productForm.get('brand')?.invalid && productForm.get('brand')?.touched
-            }"
-          />
-          <div
-            *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched"
-            class="invalid-feedback"
-          >
-            Brand is required.
-          </div>
-        </div>
+
+<div class="mb-3">
+  <label for="brand" class="form-label">Brand</label>
+  <select
+    class="form-select"
+    id="brand"
+    formControlName="brand"
+    [ngClass]="{
+      'is-invalid': productForm.get('brand')?.invalid && productForm.get('brand')?.touched
+    }"
+  >
+    <option value="">Select a brand</option>
+    <option *ngFor="let b of brands" [value]="b.id">{{ b.name }}</option>
+  </select>
+  <div *ngIf="productForm.get('brand')?.invalid && productForm.get('brand')?.touched" class="invalid-feedback">
+    Brand is required.
+  </div>
+</div>
+
 
         <div class="form-check mb-3">
           <input

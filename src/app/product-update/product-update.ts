@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from "@angula
 import { CommonModule } from "@angular/common";
 import { HttpClient, HttpClientModule } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-update',
@@ -20,7 +21,8 @@ export class ProductUpdate implements OnInit {
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]],
@@ -58,19 +60,34 @@ export class ProductUpdate implements OnInit {
 
   loadProduct(id: string) {
     this.http.get<any>(`http://localhost:3000/products/${id}`).subscribe({
-      next: product => this.productForm.patchValue(product),
+      next: product => {
+        this.productForm.patchValue({
+          name: product.name,
+          image: product.image,
+          price: product.price,
+          description: product.description,
+          inStock: product.inStock,
+          brand: product.brand?.id ?? '',        
+          category: product.category?.id ?? ''   
+        });
+      },
       error: err => console.error('Failed to load product:', err)
     });
   }
 
+
   handleSubmit() {
-    if (this.productForm.valid && this.productId) {
-      this.http.put(`http://localhost:3000/products/${this.productId}`, this.productForm.value).subscribe({
-        next: () => alert('Product updated successfully!'),
-        error: err => console.error('Failed to update product:', err)
-      });
-    } else {
-      this.productForm.markAllAsTouched();
-    }
+  if (this.productForm.valid && this.productId) {
+    this.http.put(`http://localhost:3000/products/${this.productId}`, this.productForm.value).subscribe({
+      next: () => {
+        alert('Product updated successfully!');
+        this.router.navigate(['/products']);
+      },
+      error: err => console.error('Failed to update product:', err)
+    });
+  } else {
+    this.productForm.markAllAsTouched();
   }
+}
+
 }
