@@ -16,12 +16,30 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let category of filteredCategories()">
       <td>{{ category.id }}</td>
       <td>{{ category.name }}</td>
+      <td>
+          <div class="d-flex gap-2 mb-3">
+          <button class="btn btn-primary mb-3"
+          [routerLink]="['/update-category', category.id]"
+
+          >
+            Update
+          </button>
+          <button *ngIf="category.id !== undefined"
+            class="btn btn-danger mb-3"
+            (click)="handleDelete(category.id)">
+            Delete
+          </button>
+
+          </div>
+          
+        </td>
     </tr>
   </tbody>
 </table>

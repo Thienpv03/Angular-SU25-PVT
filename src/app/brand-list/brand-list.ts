@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BrandService, Brand } from '../services/brand.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-brand-list',
@@ -16,7 +17,10 @@ export class BrandList implements OnInit {
   filterText = '';
   errorMessage: string | null = null;
 
-  constructor(private brandService: BrandService) {}
+  constructor(
+    private brandService: BrandService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.loadBrands();
@@ -34,5 +38,18 @@ export class BrandList implements OnInit {
     return this.brands.filter((brand) =>
       brand.name.toLowerCase().includes(keyword)
     );
+  }
+
+
+handleDelete(id: number) {
+    if (confirm('Bạn có chắc muốn xóa sản phẩm này không?')) {
+      this.http.delete(`http://localhost:3000/brands/${id}`).subscribe({
+        next: () => {
+          alert('Đã xóa thành công');
+          this.brands = this.brands.filter(p => p.id !== id);
+        },
+        error: (err: any) => console.error('Lỗi khi xóa:', err)
+      });
+    }
   }
 }

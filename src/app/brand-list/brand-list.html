@@ -17,12 +17,30 @@
     <tr>
       <th>ID</th>
       <th>Name</th>
+      <th>Options</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let brand of filterBrands()">
       <td>{{ brand.id }}</td>
       <td>{{ brand.name }}</td>
+      <td>
+          <div class="d-flex gap-2 mb-3">
+          <button class="btn btn-primary mb-3"
+          [routerLink]="['/update-brand', brand.id]"
+
+          >
+            Update
+          </button>
+          <button *ngIf="brand.id !== undefined"
+            class="btn btn-danger mb-3"
+            (click)="handleDelete(brand.id)">
+            Delete
+          </button>
+
+          </div>
+          
+        </td>
     </tr>
   </tbody>
 </table>

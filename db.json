@@ -31,12 +31,14 @@
       "id": "3"
     },
     {
-      "id": "4",
       "name": "Áo Manchester United 2025",
+      "image": "https://cdn.manchesterunitedlatestnews.com/wp-content/uploads/2023/07/manchester-united-new-kit-2024-1.jpg",
       "price": 550000,
-      "inStock": true,
       "description": "Áo sân nhà chính thức của MU mùa giải 2024, thiết kế đỏ truyền thống với logo sắc nét.",
-      "image": "https://cdn.manchesterunitedlatestnews.com/wp-content/uploads/2023/07/manchester-united-new-kit-2024-1.jpg"
+      "category": "1",
+      "brand": "6",
+      "inStock": true,
+      "id": "4"
     }
   ],
   "users": [
@@ -44,31 +46,58 @@
       "id": "1",
       "name": "Nguyễn Văn A",
       "email": "a@gmail.com",
+      "password": "a12345678",
       "role": "user"
     },
     {
       "id": "2",
       "name": "Trần Thị B",
       "email": "b@gmail.com",
+      "password": "b12345678",
       "role": "user"
     },
     {
       "id": "3",
       "name": "Phạm Văn C",
       "email": "c@gmail.com",
+      "password": "c12345678",
       "role": "user"
     },
     {
       "id": "4",
       "name": "Lê Thị D",
       "email": "d@gmail.com",
+      "password": "d12345678",
       "role": "user"
     },
     {
       "id": "a4c3",
       "name": "Phan Văn Thiên",
       "email": "kenhnay24h@gmail.com",
+      "password": "12345678",
       "role": "admin"
+    },
+    {
+      "email": "thien123@gmail.com",
+      "password": "$2a$10$kFdM5jWkVbCE7Lzuh0fD1eyCYOp2sbbqVg/DqPAaV2lFgd5eqH59C",
+      "id": "1drfNac"
+    },
+    {
+      "email": "khoa7917@gmail.com",
+      "password": "$2a$10$eKG3rMYq1tqs5sJ5VWZUqOWzxaoYQpoTF97DoVbU4VBbzrSsNFBVm",
+      "name": "Sách 1",
+      "id": "CA0sUTU"
+    },
+    {
+      "email": "accchatgpt2002@eurokool.com",
+      "password": "$2a$10$kW6TsuaDe/bNbBcuPzY.ZOzX/0KTCAPGZV6sGCXYTEzt7QIzZECmK",
+      "name": "Sách 1",
+      "id": "_s0HehW"
+    },
+    {
+      "email": "thien@gmail.com",
+      "password": "$2a$10$0NufqnpHdvBA5cbyjMlZSeo.K0L1N26xO.vJuiEjz5xn9Km4qLnrO",
+      "id": "zzWjWCd"
     }
   ],
   "categories": [
@@ -95,16 +124,12 @@
     {
       "id": "6",
       "name": "Đội tuyển quốc gia"
-    },
-    {
-      "id": "62e8",
-      "name": "V Leaguea"
     }
   ],
   "brands": [
     {
-      "id": "1",
-      "name": "Chelsea"
+      "name": "Chelsea",
+      "id": "1"
     },
     {
       "id": "2",
@@ -125,10 +150,6 @@
     {
       "id": "6",
       "name": "Manchester United"
-    },
-    {
-      "id": "4aa0",
-      "name": "Nike"
     }
   ]
 }

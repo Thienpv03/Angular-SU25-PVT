@@ -7,8 +7,10 @@ import { UserList } from './user-list/user-list';
 import { ProductCreate } from './product-create/product-create';
 import { CategoryCreate } from './category-create/category-create';
 import { BrandCreate } from './brand-create/brand-create';
-import { UserCreate } from './user-create/user-create';
 import { ProductUpdate } from './product-update/product-update';
+import { BrandUpdate } from './brand-update/brand-update';
+import { Login } from './auth/login/login';
+import { Register } from './auth/register/register';
 
 export const routes: Routes = [
   {
@@ -44,11 +46,20 @@ export const routes: Routes = [
     component: BrandCreate,
   },
   {
-    path: 'add-user',
-    component: UserCreate,
-  },
-  {
     path: 'update-product/:id',
     component: ProductUpdate,
   },
+  {
+    path: 'update-brand/:id',
+    component: BrandUpdate,
+  },
+  {
+    path: 'login',
+    component: Login,
+  },
+  {
+    path: 'register',
+    component: Register,
+  },
+
 ];

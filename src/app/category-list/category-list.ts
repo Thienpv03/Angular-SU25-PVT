@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Category, CategoryService } from '../services/category.service';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -17,7 +18,10 @@ export class CategoryList implements OnInit {
   categories: Category[] = [];
   errorMessage: string | null = null;
 
-  constructor(private categoryService: CategoryService) {}
+  constructor(
+    private categoryService: CategoryService,
+    private http: HttpClient
+  ) {}
 
   ngOnInit(): void {
     this.loadCategories();
@@ -35,5 +39,16 @@ export class CategoryList implements OnInit {
     return this.categories.filter(category =>
       category.name.toLowerCase().includes(keyword)
     );
+  }
+handleDelete(id: number) {
+    if (confirm('Bạn có chắc muốn xóa sản phẩm này không?')) {
+      this.http.delete(`http://localhost:3000/categories/${id}`).subscribe({
+        next: () => {
+          alert('Đã xóa thành công');
+          this.categories = this.categories.filter(p => p.id !== id);
+        },
+        error: (err: any) => console.error('Lỗi khi xóa:', err)
+      });
+    }
   }
 }
