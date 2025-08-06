@@ -1,0 +1,6 @@
+<div class="container mt-4">
+  <h2>Trang chủ</h2>
+  <p *ngIf="email">Xin chào, {{ email }}!</p>
+  <p *ngIf="!email">Bạn chưa đăng nhập.</p>
+  <button (click)="logout()">Đăng xuất</button>
+</div>

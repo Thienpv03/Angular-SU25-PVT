@@ -5,21 +5,25 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { ToastService } from '../../services/toast.service';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [ReactiveFormsModule],
   templateUrl: './login.html',
   styleUrl: './login.css',
 })
 export class Login {
   loginForm: FormGroup;
+
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private toast: ToastService
+    private toast: ToastService,
+    private router: Router
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -28,15 +32,21 @@ export class Login {
   }
 
   onSubmit() {
-    // if (this.registerForm.valid) {
-    console.log(this.loginForm.value);
+    if (this.loginForm.invalid) {
+      this.toast.error('Vui lòng điền đúng thông tin');
+      return;
+    }
+
     this.authService.loginUser(this.loginForm.value).subscribe({
       next: (data) => {
-        this.toast.success('Login success');
+        this.toast.success('Đăng nhập thành công');
         localStorage.setItem('token', data.accessToken);
+        localStorage.setItem('user', JSON.stringify(data.user));
+        this.router.navigate(['/home']);
       },
-      error: () => {},
+      error: (err) => {
+        this.toast.error(err.error?.message || 'Đăng nhập thất bại');
+      },
     });
-    // }
   }
 }

@@ -11,6 +11,7 @@ import { ProductUpdate } from './product-update/product-update';
 import { BrandUpdate } from './brand-update/brand-update';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
+import { Home } from './auth/home/home';
 
 export const routes: Routes = [
   {
@@ -60,6 +61,10 @@ export const routes: Routes = [
   {
     path: 'register',
     component: Register,
+  },
+  {
+    path: 'home',
+    component: Home,
   },
 
 ];

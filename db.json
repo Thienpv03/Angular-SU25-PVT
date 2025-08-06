@@ -78,11 +78,6 @@
       "role": "admin"
     },
     {
-      "email": "thien123@gmail.com",
-      "password": "$2a$10$kFdM5jWkVbCE7Lzuh0fD1eyCYOp2sbbqVg/DqPAaV2lFgd5eqH59C",
-      "id": "1drfNac"
-    },
-    {
       "email": "khoa7917@gmail.com",
       "password": "$2a$10$eKG3rMYq1tqs5sJ5VWZUqOWzxaoYQpoTF97DoVbU4VBbzrSsNFBVm",
       "name": "Sách 1",
@@ -95,9 +90,11 @@
       "id": "_s0HehW"
     },
     {
-      "email": "thien@gmail.com",
-      "password": "$2a$10$0NufqnpHdvBA5cbyjMlZSeo.K0L1N26xO.vJuiEjz5xn9Km4qLnrO",
-      "id": "zzWjWCd"
+      "email": "thien2222@gmail.com",
+      "password": "$2a$10$vkmU8oScfkrYhtQdhlu5.urBWZD6N1OK6ZQHadyJn69GZhKJ4bWqG",
+      "name": "Thiên",
+      "role": "user",
+      "id": "W2mkSNn"
     }
   ],
   "categories": [
