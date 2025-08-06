@@ -12,6 +12,7 @@ import { BrandUpdate } from './brand-update/brand-update';
 import { Login } from './auth/login/login';
 import { Register } from './auth/register/register';
 import { Home } from './auth/home/home';
+import { ClientProduct } from './client/client-product';
 
 export const routes: Routes = [
   {
@@ -65,6 +66,10 @@ export const routes: Routes = [
   {
     path: 'home',
     component: Home,
+  },
+  {
+    path: 'client-product',
+    component: ClientProduct,
   },
 
 ];
