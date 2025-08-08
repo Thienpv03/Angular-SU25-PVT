@@ -5,8 +5,8 @@
       "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQac5J6YK4kEGanDtDnfWXEnMNIJo7_lH_GcA&s",
       "price": 550000,
       "description": "Áo sân nhà chính thức của Chealsea mùa giải 2025, thiết kế xanh dương truyền thống với vân áo mới mẻ.",
-      "category": "1",
-      "brand": "1",
+      "category": "6",
+      "brand": "6",
       "inStock": true,
       "id": "1"
     },
@@ -43,34 +43,6 @@
   ],
   "users": [
     {
-      "id": "1",
-      "name": "Nguyễn Văn A",
-      "email": "a@gmail.com",
-      "password": "a12345678",
-      "role": "user"
-    },
-    {
-      "id": "2",
-      "name": "Trần Thị B",
-      "email": "b@gmail.com",
-      "password": "b12345678",
-      "role": "user"
-    },
-    {
-      "id": "3",
-      "name": "Phạm Văn C",
-      "email": "c@gmail.com",
-      "password": "c12345678",
-      "role": "user"
-    },
-    {
-      "id": "4",
-      "name": "Lê Thị D",
-      "email": "d@gmail.com",
-      "password": "d12345678",
-      "role": "user"
-    },
-    {
       "id": "a4c3",
       "name": "Phan Văn Thiên",
       "email": "kenhnay24h@gmail.com",
@@ -95,6 +67,20 @@
       "name": "Thiên",
       "role": "user",
       "id": "W2mkSNn"
+    },
+    {
+      "email": "thien@gmail.com",
+      "password": "$2a$10$fbOGShV7fiQ9et9w30s..e402i/ucpYpiF/NA/sbu1d1a2s8ju9GW",
+      "name": "a",
+      "role": "user",
+      "id": "wJo_5dG"
+    },
+    {
+      "email": "thien1234@gmail.com",
+      "password": "$2a$10$.ICb1jL1YhLvwzMfzLzDuu/4EE8PH6HdPnPIZsbeTN60YyShwSovS",
+      "name": "Phan Văn Thiên",
+      "role": "user",
+      "id": "eGdtQ2n"
     }
   ],
   "categories": [

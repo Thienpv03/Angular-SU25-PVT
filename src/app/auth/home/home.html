@@ -1,6 +1,15 @@
-<div class="container mt-4">
-  <h2>Trang chủ</h2>
-  <p *ngIf="email">Xin chào, {{ email }}!</p>
-  <p *ngIf="!email">Bạn chưa đăng nhập.</p>
-  <button (click)="logout()">Đăng xuất</button>
+<div class="home-container">
+  <ng-container *ngIf="!email; else loggedIn">
+    <button class="btn-primary" (click)="router.navigate(['/login'])">
+      Đăng nhập
+    </button>
+    <button class="btn-secondary" (click)="router.navigate(['/register'])">
+      Đăng ký
+    </button>
+  </ng-container>
+
+  <ng-template #loggedIn>
+    <p class="welcome-text">Xin chào, {{ email }}!</p>
+    <button class="btn-logout" (click)="logout()">Đăng xuất</button>
+  </ng-template>
 </div>

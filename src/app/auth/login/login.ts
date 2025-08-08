@@ -42,7 +42,7 @@ export class Login {
         this.toast.success('Đăng nhập thành công');
         localStorage.setItem('token', data.accessToken);
         localStorage.setItem('user', JSON.stringify(data.user));
-        this.router.navigate(['/home']);
+        this.router.navigate(['/products']);
       },
       error: (err) => {
         this.toast.error(err.error?.message || 'Đăng nhập thất bại');

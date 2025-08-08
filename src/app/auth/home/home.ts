@@ -7,13 +7,12 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './home.html',
-  styleUrl: './home.css',
+  styleUrls: ['./home.css'], 
 })
 export class Home implements OnInit {
   email: string | null = null;
 
-  constructor(private router: Router) {}
-
+  constructor(public router: Router) {}
 
   ngOnInit(): void {
     const user = localStorage.getItem('user');
